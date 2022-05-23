@@ -5,10 +5,13 @@ public class Main {
         makeBoxHor();
         askUserForInput();
         makeBoxHor();
+        WordChecker wc = new WordChecker();
         Dictionary words = new Dictionary();
         String toCheck = getUserInput();
-        words.printValidWords();
-
+        makeBoxHor();
+        int[] temp = getWordInPosition(toCheck);
+        makeBoxHor();
+        wc.checkWord(toCheck, temp);
     }
     public static void makeBoxHor() {
         String boxTop = "==========================================================================================";
@@ -28,5 +31,31 @@ public class Main {
             word = sc.nextLine();
         }
         return word;
+    }
+    public static int[] getWordInPosition(String word) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("What was the status of each letter? 1 = grey, 2 = yellow, 3 = green");
+        int posCheck = 0;
+        int[] wordValues = new int[5];
+        System.out.println("Your guessed word is --- " + word + " ---");
+        while(posCheck < 5) {
+            System.out.println("Letter '" + word.charAt(posCheck) + "' was grey, yellow, or green?");
+            wordValues[posCheck] = getCheckedInt();
+            while (wordValues[posCheck] > 3 || wordValues[posCheck] < 1) { //for correct input
+                System.out.println("Please enter 1,2,3! 1 for grey, 2 for yellow, 3 for green!");
+                wordValues[posCheck] = getCheckedInt();
+            }
+            posCheck++;
+        }
+        return wordValues;
+    }
+    public static int getCheckedInt() { //small method to call upon to return an integer that only accepts int
+        Scanner sc = new Scanner(System.in);
+        while (!sc.hasNextInt()) {
+            System.out.println("Oops! That doesn't look like an integer! Please try again.");
+            sc.nextLine();
+        }
+        int intCheck = sc.nextInt();
+        return intCheck;
     }
 }
