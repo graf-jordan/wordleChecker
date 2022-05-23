@@ -1,11 +1,12 @@
 import java.util.Scanner;
-
+import java.io.FileNotFoundException;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         makeBoxHor();
         askUserForInput();
         makeBoxHor();
         String toCheck = getUserInput();
+        WordChecker wc = new WordChecker();
     }
     public static void makeBoxHor() {
         String boxTop = "==========================================================================================";
