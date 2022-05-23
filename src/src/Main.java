@@ -5,8 +5,10 @@ public class Main {
         makeBoxHor();
         askUserForInput();
         makeBoxHor();
+        Dictionary words = new Dictionary();
         String toCheck = getUserInput();
-        WordChecker wc = new WordChecker();
+        words.printValidWords();
+
     }
     public static void makeBoxHor() {
         String boxTop = "==========================================================================================";
@@ -15,7 +17,7 @@ public class Main {
     public static void askUserForInput(){
         String userAsk = "Please enter a five letter word";
         userAsk += "\n";
-        userAsk += "This program will try and guide you to a correct World guess!";
+        userAsk += "This program will try and guide you to a correct Wordle guess!";
         System.out.println(userAsk);
     }
     public static String getUserInput(){
