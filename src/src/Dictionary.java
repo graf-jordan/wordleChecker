@@ -54,11 +54,17 @@ public class Dictionary {
                         char tempLetter = word.charAt(k);
 
                         String parseable = String.valueOf(tempLetter);
-                        //System.out.println(parseable);
                         String removeThis = keptWords[j];
-                        //System.out.println(removeThis);
-                        if (removeThis != null) {
-                            if (removeThis.contains(parseable)) {
+                        boolean checkAlreadyIn = false;
+                        for (int i = 0; i < 5; i++) {
+                            char alreadyGreen = word.charAt(i);
+                            if (tempLetter == alreadyGreen && arr[i] == 3) {
+                                checkAlreadyIn = true;
+                                break;
+                            }
+                        }
+                        if (removeThis != null && !checkAlreadyIn) {
+                            if (removeThis.contains(parseable) && removeThis != null) {
                                 tempRemovers.add(removeThis);
                             }
                         }
