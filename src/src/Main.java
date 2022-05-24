@@ -11,7 +11,9 @@ public class Main {
         makeBoxHor();
         int[] temp = getWordInPosition(toCheck);
         makeBoxHor();
-        wc.checkWord(toCheck, temp);
+        words.parseWord(toCheck, temp);
+        makeBoxHor();
+        words.printValidWords();
     }
     public static void makeBoxHor() {
         String boxTop = "==========================================================================================";
