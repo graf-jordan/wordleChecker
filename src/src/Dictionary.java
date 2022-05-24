@@ -91,6 +91,7 @@ public class Dictionary {
                         }
                     }
                     wordList.removeAll(tempRemovers);
+                    tempRemovers.clear();
                 }
             }
         }
