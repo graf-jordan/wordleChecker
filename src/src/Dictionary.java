@@ -44,4 +44,10 @@ public class Dictionary {
             }
         }
     }
+    public HashSet<String> getWordList() {
+        return wordList;
+    }
+    public void setWordList(HashSet<String> list) {
+        wordList = list;
+    }
 }
