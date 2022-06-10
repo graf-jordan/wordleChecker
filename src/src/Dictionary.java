@@ -52,7 +52,6 @@ public class Dictionary {
                 if(arr[k] == 1) { //if the letter is grey
                     for (int j = 0; j <keptWords.length; j++) {
                         char tempLetter = word.charAt(k);
-
                         String parseable = String.valueOf(tempLetter);
                         String removeThis = keptWords[j];
                         boolean checkAlreadyIn = false;
@@ -77,7 +76,7 @@ public class Dictionary {
                         String parseable = String.valueOf(tempLetter);
                         String removeThis = keptWords[j];
                         if (removeThis != null) {
-                            if (!removeThis.contains(parseable) && removeThis != null) {
+                            if ((!removeThis.contains(parseable) || removeThis.charAt(k) == tempLetter) && removeThis != null ) {
                                 tempRemovers.add(removeThis);
                             }
                         }
